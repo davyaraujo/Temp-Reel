@@ -6,20 +6,22 @@
 #include "../TP1/Chrono.h"
 
 
-Thread::Thread(int id) : id(id){
+Thread::Thread(int id) : id(id) {
     pthread_attr_t posixThreadAttrld;
     pthread_attr_init(&posixThreadAttrld);
+    this->posixThreadAttrld = posixThreadAttrld;
 }
 Thread::~Thread(){
     pthread_attr_destroy(&posixThreadAttrld);
 }
 
-void Thread::start(int priority = 0){
+void Thread::start(int priority){
     bool istart = false;
     sched_param schedParams;
     schedParams.sched_priority = priority;
     pthread_attr_setschedparam(&posixThreadAttrld,&schedParams);
-    bool istart = true;
+    pthread_create(&posixThreadId, &posixThreadAttrld, call_run, this);
+    istart = true;
 }
 
 void Thread::join(){
@@ -45,13 +47,16 @@ void* Thread::call_run(void* v_thread){
     ch.restart();
     th->run();
     th->duration = ch.lap_ms();
+    return nullptr;
 
 }
 
 long Thread::duration_ms(){
-    if(isStarted){
+    if(isStarted())
+    {
         return duration;
-    }       
+    }
+    return -1;
 }
 
 int Thread::getMaxPrio(int policy){

@@ -12,8 +12,8 @@ class Thread {
         static void* call_run(void* v_thread);
     public:
         long duration;
-        Thread(int id) : id(id){}
-        ~Thread(){}
+        Thread(int id);
+        ~Thread();
         void start(int priority = 0);
         void join();
         bool isStarted();

@@ -4,7 +4,8 @@
 #include <time.h>
 #include <iostream>
 #include <cerrno>
-#include "Chrono.h"
+#include "timespec.h"
+
 
 double timespec_to_ms(const struct timespec& time_ts) {
     return (time_ts.tv_sec * 1000) + (time_ts.tv_nsec/1000000.0);
@@ -152,34 +153,3 @@ bool operator> (const timespec& time1_ts, const timespec& time2_ts) {
     return time2_ts < time1_ts; 
 }
 
-
-
-
-
-// int main(){
-//     struct timespec tsp;
-//     struct timespec tsn;
-//     tsp.tv_sec = 2;
-//     tsp.tv_nsec = 700000000;
-    
-//     // 2. Configurando -2.7 segundos (Normalizado)
-//     // -3 segundos + 300 milhões de nanosegundos = -2.7s
-//     tsn.tv_sec = -3;
-//     tsn.tv_nsec = 300000000;
-
-//     std::cout << "to ms : " << timespec_to_ms(tsp) << "ms" <<std::endl;
-//     std::cout << "to ms : " << timespec_to_ms(tsn) << "ms" <<std::endl;
-
-//     double t1 = -2750;
-
-//     struct timespec ts1 = timespec_from_ms(t1);
-
-//     std::cout << "from ms : " << t1 <<std::endl;
-//     std::cout << "from ms : " << ts1.tv_sec << " seg" <<std::endl;
-//     std::cout << "from ms : " << ts1.tv_nsec << " nano" <<std::endl;
-
-//     timespec_now();
-
-
-//     return 0;
-// }

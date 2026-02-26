@@ -1,7 +1,7 @@
 #include <vector>
 #include <cfloat>
 #include <iostream>
-#include "timer.h"   
+#include "timer.cpp"   
 #include "looper.cpp"  
 
 class Calibrator : public Timer {
@@ -44,18 +44,3 @@ public:
     double getB() const { return b; }
 };
 
-// int main() {
-//     Calibrator calib(200.0, 10);
-//     Looper testLp;
-//     Chrono ch;
-
-//     for (double t = 500.0; t <= 10000.0; t += 200.0) {
-//         double loops = calib.nLoops(t);
-//         ch.restart();
-//         testLp.runLoop(loops);
-//         ch.stop();
-
-//         std::cout << "Target: " << t << "ms | Real: " << ch.lap_ms() << "ms" << std::endl;
-//     }
-//     return 0;
-// }

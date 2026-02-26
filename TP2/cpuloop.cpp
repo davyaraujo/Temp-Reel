@@ -4,7 +4,8 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <time.h>
-#include "calibrator.cpp"
+#include "../TP2/looper.cpp"
+#include "../TP2/calibrator.cpp"
 
 using namespace std;
 

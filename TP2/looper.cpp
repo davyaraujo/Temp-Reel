@@ -3,7 +3,7 @@
 #include <signal.h>
 #include <time.h>
 #include <iomanip>
-#include "/home/davy/Ensta/TempReel/TP1/Chrono.h"
+#include "../TP1/Chrono.h"
 using namespace std;
 
 class Looper {
@@ -31,27 +31,3 @@ class Looper {
         }
 };
 
-    // int main(int argc, char* argv[]){
-    //     if (argc < 2) {
-    //             std::cerr << "Usage: " << argv[0] << " <nLoops>" << std::endl;
-    //             return 1;
-    //         }
-    //     double nLoops = atof(argv[1]);
-
-    //     Chrono ch;
-    //     Looper lp;
-    //     ch.restart();
-    //     double iLoop = lp.runLoop(nLoops);
-    //     timespec time = ch.stop();
-
-    //     cout << "LOOPS : " << nLoops << endl;
-
-
-    //     cout << "SEG: " << time.tv_sec << endl;
-    //     cout << "Nano: " << time.tv_nsec << endl;
-
-
-
-        
-    //     return 0;
-    // }

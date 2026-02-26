@@ -1,7 +1,9 @@
 #include <iostream> 
 #include <time.h>
 #include <signal.h>
-#include <timer.h>
+#include "../TP2/timer.cpp"
+#include "../TP3/thread.cpp"
+#include <unistd.h>
 
 using namespace std;
 
@@ -34,10 +36,6 @@ int main() {
 
     cout << "Fin" << endl;
     timer_delete(timerid);
-
-    Timer timer1();
-
-    
 
     return 0;
 }
