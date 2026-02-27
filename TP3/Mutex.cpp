@@ -5,9 +5,20 @@
 #include <string>
 #include <ctime>
 
-Mutex::Mutex(){
-    int err = pthread_mutex_init(&this->posixMutexId, nullptr);
-    if (err != 0) throw std::string("pthread_mutex_init failed: error ") + std::to_string(err);
+Mutex::Mutex(bool isInversive) {
+    if (isInversive){
+        int err = pthread_mutexattr_init(&this->posixMutexAttrId);
+        if (err != 0) throw std::string("pthread_mutexattr_init failed: error ") + std::to_string(err);
+        err = pthread_mutexattr_settype(&this->posixMutexAttrId, PTHREAD_MUTEX_RECURSIVE);
+        if (err != 0) throw std::string("pthread_mutexattr_settype failed: error ") + std::to_string(err);
+        err = pthread_mutexattr_setprotocol(&this->posixMutexAttrId, PTHREAD_PRIO_INHERIT);
+        if (err != 0) throw std::string("pthread_mutexattr_setprotocol failed: error ") + std::to_string(err);       
+    }
+    else{
+        int err = pthread_mutex_init(&this->posixMutexId, nullptr);
+        if (err != 0) throw std::string("pthread_mutex_init failed: error ") + std::to_string(err);
+    }
+    
 }
 
 Mutex::~Mutex(){
@@ -15,6 +26,7 @@ Mutex::~Mutex(){
 }
 
 void Mutex::lock(){
+
     int err = pthread_mutex_lock(&this->posixMutexId);
     if (err != 0) throw std::string("pthread_mutex_lock failed: error ") + std::to_string(err);
 }

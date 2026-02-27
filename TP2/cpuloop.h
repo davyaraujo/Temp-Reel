@@ -4,17 +4,17 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <time.h>
-#include "../TP2/looper.cpp"
-#include "../TP2/calibrator.cpp"
+#include "../TP2/looper.h"
+#include "../TP2/calibrator.h"
 
 using namespace std;
 
 
 class CPULoop : public Looper {
     private:
-        Calibrator& calibrator;
+        const Calibrator& calibrator;
     public:
-        CPULoop(Calibrator& calib): Looper(),calibrator(calib){}
+        CPULoop(const Calibrator& calib): Looper(),calibrator(calib){}
         double runTime(double duration_ms){
             Chrono ch;
             Looper lp;
@@ -28,16 +28,3 @@ class CPULoop : public Looper {
             return error;
         }
 };
-
-
-int main(){
-    Calibrator calib(200.0,10);
-    CPULoop cpl(calib);
-
-    for (double t = 500.0; t <= 10000.0; t += 200.0) {
-        double error = cpl.runTime(t);
-        cout << error << endl;
-    }
-
-    return 0;
-}

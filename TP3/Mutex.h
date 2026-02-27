@@ -6,14 +6,14 @@
 class Mutex {
     private:
         pthread_mutex_t posixMutexId;
-
+        pthread_mutexattr_t posixMutexAttrId;
         void lock();
         bool lock(double timeout_ms);
         void unlock();
 
     public:
         class Lock;
-        Mutex();
+        Mutex(bool isInversive = false);
         ~Mutex(); 
 };
 

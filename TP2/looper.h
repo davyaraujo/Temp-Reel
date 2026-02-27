@@ -1,3 +1,7 @@
+#ifndef LOOPER_H
+#define LOOPER_H
+
+
 #include <iostream>
 #include <stdlib.h>
 #include <signal.h>
@@ -30,4 +34,6 @@ class Looper {
             return doStop;
         }
 };
+
+#endif
 

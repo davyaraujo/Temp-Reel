@@ -34,7 +34,6 @@ int main() {
         threads[i]->start(); 
     }
 
-    // Remplacement de pthread_join
     for (int i = 0; i < nThreads; ++i) {
         threads[i]->join();
     }
