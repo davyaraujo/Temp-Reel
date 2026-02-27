@@ -16,26 +16,19 @@ Thread::~Thread(){
 }
 
 void Thread::start(int priority){
-    bool istart = false;
     sched_param schedParams;
     schedParams.sched_priority = priority;
     pthread_attr_setschedparam(&posixThreadAttrld,&schedParams);
     pthread_create(&posixThreadId, &posixThreadAttrld, call_run, this);
-    istart = true;
 }
 
 void Thread::join(){
-    pthread_t incrementThread; 
-    pthread_join(incrementThread, NULL);
+    pthread_join(posixThreadId, NULL);
 }
 
 bool Thread::isStarted(){
-    bool istart;
-    if(istart){
-        return true;
-    }
-    return false;
-} 
+    return posixThreadId != 0;
+}
 
 void Thread::run(){
     std::cout << "Exec" << std::endl;
