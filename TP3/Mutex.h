@@ -23,8 +23,13 @@ class Mutex::Lock {
         Lock(Mutex& mutex, double timeout_ms);
         ~Lock();
 
-    private:
+    protected:
         Mutex& mutex;
+
+    protected:
+        pthread_mutex_t* getPosixMutexId(){
+            return &mutex.posixMutexId;
+        }
 };
 
 class TimeoutException {
