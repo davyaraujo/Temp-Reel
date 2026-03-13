@@ -37,14 +37,12 @@ class ThreadA : public Thread {
 class ThreadB : public Thread {
     private:
         CPULoop cpuLoop;
-        Mutex& R;
     public:
-        ThreadB(int id,  const Calibrator& calib, Mutex& R): Thread(id), cpuLoop(calib), R(R){}
+        ThreadB(int id,  const Calibrator& calib): Thread(id), cpuLoop(calib){}
         void run() override {
             cpuLoop.runTime(1000);
             for (int i = 0; i < 10; i++) {
                 {
-                    Mutex::Lock lock(R);
                     std::cout << "Thread B: " << i << std::endl;
                     cpuLoop.runTime(1000);
 
@@ -88,16 +86,15 @@ int main() {
         return 1;
     }
     std::cout<<"processus lié ao CPU 0"<<std::endl;
-    Calibrator calib(10, 100);
+    Calibrator calib(10, 10);
     Mutex mutexA, mutexB, mutexC;
     ThreadA taskA(1, calib, mutexA);
-    ThreadB taskB(2, calib, mutexB);
+    ThreadB taskB(2, calib);
     ThreadC taskC(3, calib, mutexA);
     taskC.start(10);
     std::this_thread::sleep_for(std::chrono::milliseconds(3000));
     taskA.start(30);
     taskB.start(20);
-
     taskA.join();
     taskB.join();
     taskC.join();
