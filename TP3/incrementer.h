@@ -1,7 +1,7 @@
 #ifndef INCREMENTER_H
 #define INCREMENTER_H
-#include "counter.h"
-#include  "thread.h"
+#include "../TP3/counter.h"
+#include  "../TP3/thread.h"
 
 class  Incrementer : public Thread {
     private:

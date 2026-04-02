@@ -3,13 +3,13 @@
 #include <string>
 #include <chrono>
 #include <thread>
-#include "counter.h"
-#include "incrementer.h"
+#include "../TP3/counter.h"
+#include "../TP3/incrementer.h"
 #include "../TP1/Chrono.h"
-#include "Mutex.h"
+#include "../TP3/Mutex.h"
 #include "../TP2/cpuloop.h"
 #include "../TP2/calibrator.h"
-#include "thread.h"
+#include "../TP3/thread.h"
 #include "../TP2/looper.h"
 
 

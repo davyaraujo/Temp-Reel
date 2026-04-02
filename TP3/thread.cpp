@@ -2,7 +2,7 @@
 #include <pthread.h>
 #include <iostream>
 #include <cstring>
-#include "thread.h"
+#include "../TP3/thread.h"
 #include "../TP1/Chrono.h"
 
 

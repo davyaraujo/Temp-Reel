@@ -1,5 +1,5 @@
-#include "thread.h"
-#include "Mutex.h"
+#include "../TP3/thread.h"
+#include "../TP3/Mutex.h"
 #include <vector>
 #include <iostream>
 

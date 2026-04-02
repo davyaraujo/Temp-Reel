@@ -2,8 +2,8 @@
 #include <vector>
 #include <memory>
 #include <string>
-#include "counter.h"
-#include "incrementer.h"
+#include "../TP3/counter.h"
+#include "../TP3/incrementer.h"
 #include "../TP1/Chrono.h"
 
 int main(int argc, char* argv[]) {

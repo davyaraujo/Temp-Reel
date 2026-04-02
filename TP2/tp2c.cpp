@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <cstdlib>      // strtod
 #include "../TP1/Chrono.h"
-#include "looper.h"
+#include "../TP2/looper.h"
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {

@@ -1,6 +1,6 @@
 #ifndef COUNTER_H
 #define COUNTER_H
-#include "Mutex.h"
+#include "../TP3/Mutex.h"
 #include <memory>
 #include <functional>
 

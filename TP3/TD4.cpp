@@ -1,5 +1,5 @@
-#include "thread.h"
-#include "semaphore.h"
+#include "../TP3/thread.h"
+#include "../TP3/semaphore.h"
 #include <atomic>
 #include <iostream>
 #include <vector>
