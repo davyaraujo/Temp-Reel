@@ -1,3 +1,6 @@
+Binome: Davy Araujo && Gabriel Corsi
+
+
 # Projet TP - Cours de Programmation Système
 
 Ce projet contient une collection d'exercices pratiques (TP) en C++ pour le cours de programmation système.
