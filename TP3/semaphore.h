@@ -1,8 +1,8 @@
 #ifndef SEMAPHORE_H
 #define SEMAPHORE_H
 
-#include <Mutex.h>
-#include <monitor.h>
+#include "Mutex.h"
+#include "monitor.h"
 #include <condition_variable>
 #include <stdexcept>
 #include <string>

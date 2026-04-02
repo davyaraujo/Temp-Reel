@@ -24,10 +24,5 @@ class Thread {
         static int getMainSched(int policy);
     protected:
         virtual void run() = 0;
-
-
 }; 
-
-
-
 #endif

@@ -1,15 +1,15 @@
 #ifndef MONITOR_H
 #define MONITOR_H
 
-#include <Mutex.h>
+#include "Mutex.h"
 
 class Monitor : public Mutex {
     private:
         pthread_cond_t posixCPondId;
     public:
         class Lock;     
-        Monitor(Mutex& mutex) : Mutex(mutex) {}
-        virtual ~Monitor() = default;
+        Monitor(Mutex& mutex);
+        virtual ~Monitor();
         void notify();
         void notifyAll();  
 };
@@ -24,6 +24,5 @@ class Monitor::Lock : public Mutex::Lock {
     protected:
         Monitor& mon;
 };
-
 
 #endif

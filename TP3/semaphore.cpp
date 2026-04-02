@@ -8,7 +8,7 @@ maxCounter(maxCounter) {
 }
 
 void Semaphore::give(){
-    Mutex::Lock lock(mutex);
+    Mutex::Lock lock(*this);
     if (counter >= maxCounter) {
         throw std::overflow_error("Counter cannot exceed max counter");
     }
@@ -17,7 +17,7 @@ void Semaphore::give(){
 }
 
 void Semaphore::take(Monitor& monitor){
-    Mutex::Lock lock(mutex);
+    Mutex::Lock lock(*this);
     while (counter == 0) {
         Monitor::Lock monitorLock(monitor);
         monitorLock.wait();
@@ -26,7 +26,7 @@ void Semaphore::take(Monitor& monitor){
 }
 
 bool Semaphore::take(double timeout_ms){
-    Mutex::Lock lock(mutex, double(timeout_ms));
+    Mutex::Lock lock(*this, double(timeout_ms));
     try{
         if (counter == 0) {
             return false;
