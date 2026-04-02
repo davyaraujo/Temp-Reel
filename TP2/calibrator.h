@@ -1,10 +1,11 @@
 #ifndef CALIBRATOR_H
 #define CALIBRATOR_H
+
 #include <vector>
 #include <cfloat>
 #include <iostream>
-#include "timer.cpp"   
-#include "looper.h"  
+#include "../TP2/timer.h"   
+#include "../TP2/looper.h"  
 
 
 class  Calibrator  : public Timer {

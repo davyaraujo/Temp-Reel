@@ -1,13 +1,13 @@
 #ifndef LOOPER_H
 #define LOOPER_H
 
-
 #include <iostream>
 #include <stdlib.h>
 #include <signal.h>
 #include <time.h>
 #include <iomanip>
 #include "../TP1/Chrono.h"
+
 using namespace std;
 
 class Looper {

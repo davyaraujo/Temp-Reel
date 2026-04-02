@@ -1,17 +1,22 @@
 #include <iostream> 
 #include <time.h>
 #include <signal.h>
-#include "../TP2/timer.cpp"
-#include "../TP3/thread.cpp"
+#include "../TP2/timer.h"
 #include <unistd.h>
 
 using namespace std;
+
+volatile int cont = 0;
+
+static void myHandler(int sig, siginfo_t* si, void* uc) {
+    cont++;
+    cout << "|Competeur: " << cont << endl;
+}
 
 int main() {
     timer_t timerid;
     struct sigevent sev;
     struct itimerspec its;
-
     struct sigaction sa;
     sa.sa_flags = SA_SIGINFO;
     sa.sa_sigaction = myHandler;

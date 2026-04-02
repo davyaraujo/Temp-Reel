@@ -6,12 +6,7 @@
 using namespace std;
 
 
-volatile int cont = 0;
 
-void myHandler(int sig, siginfo_t* si, void* uc) {
-    cont++;
-    cout << "|Competeur: " << cont << endl;
-}
 
 class Timer {
     private:
