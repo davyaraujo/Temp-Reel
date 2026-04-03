@@ -1,4 +1,4 @@
-CXX = g++
+CXX = arm-linux-g++ -Wall -Wextra
 PTHREAD_FLAGS = -lpthread
 BIN_DIR = bin
 

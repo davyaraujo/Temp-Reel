@@ -80,8 +80,31 @@ make tp3d
 Pour supprimer tous les fichiers compilés:
 
 make clean
-```
-## Recompilation Complète
+### Recompilation Complète
 
+```
 make clean && make tp1 && make tp2a && make tp2b && make tp2c && make tp2de && make tp3c && make tp3d && make tp3e && make tp4
+```
+
+
+## Raspberry step by step
+
+```
+git clone git@github.com:davyaraujo/Temp-Reel.git
+```
+
+```
+cd Temp-Reel
+```
+
+```
+make clean && make tp1 && make tp2a && make tp2b && make tp2c && make tp2de && make tp3c && make tp3d && make tp3e && make tp4
+```
+
+```
+rsync -avz bin/ root@192.168.50.xx:
+```
+
+```
+ssh root@192.168.50.xx
 ```
